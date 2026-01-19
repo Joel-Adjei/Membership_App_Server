@@ -3,6 +3,7 @@ import "dotenv/config";
 import cookieParser from 'cookie-parser';
 import router from './routes/router.js';
 import { connectDB } from './db/db.js';
+// import { createAdminModel } from './db/models.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,8 @@ connectDB().catch((error) => {
     console.error("Database connection failed:", error);
     process.exit(1);
 });
+
+// createAdminModel();
 
 app.use("/api", router);
 
