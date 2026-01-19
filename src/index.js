@@ -2,12 +2,18 @@ import express from 'express';
 import "dotenv/config";
 import cookieParser from 'cookie-parser';
 import router from './routes/router.js';
+import { connectDB } from './db/db.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cookieParser());
+
+connectDB().catch((error) => {
+    console.error("Database connection failed:", error);
+    process.exit(1);
+});
 
 app.use("/api", router);
 
