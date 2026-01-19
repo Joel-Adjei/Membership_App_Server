@@ -1,5 +1,5 @@
 export const loginValidation = {
-    username: {
+    user_id: {
         notEmpty: {
             errorMessage: 'Username is required'
         },
