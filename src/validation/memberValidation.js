@@ -1,96 +1,127 @@
 import { allDepartments } from "../utils/utils.js";
 
 export const addMemberValidation = {
-    name: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Name is required'
-        }
+  name: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+    notEmpty: {
+      errorMessage: "Name is required",
     },
-    hall: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Hall is required'
-        }
+  },
+  image: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+  },
+  hall: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+  },
+  room_number: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+  },
+  student_status: {
+    in: ["body"],
+    isIn: {
+      options: [["graduate", "undergraduate"]],
+      errorMessage: "Invalid student status",
     },
-    contact: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Contact is required'
-        }
+    notEmpty: {
+      errorMessage: "Student status is required",
     },
-    guardian_contact: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Guardian contact is required'
-        }
+  },
+  contact: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+    notEmpty: {
+      errorMessage: "Contact is required",
     },
-    email: {
-        in: ['body'],
-        isEmail: {
-            errorMessage: 'Invalid email format'
-        },
-        normalizeEmail: true,
-        notEmpty: {
-            errorMessage: 'Email is required'
-        }
+  },
+  guardian_contact: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+    notEmpty: {
+      errorMessage: "Guardian contact is required",
     },
-    level: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Level is required'
-        }
+  },
+  email: {
+    in: ["body"],
+    isEmail: {
+      errorMessage: "Invalid email format",
     },
-    programme: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Programme is required'
-        }
+    normalizeEmail: true,
+    notEmpty: {
+      errorMessage: "Email is required",
     },
-    department: {
-        in: ['body'],
-        oneOf: {
-            options: allDepartments
-        },
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Department is required'
-        }
+  },
+  church_status: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+    notEmpty: {
+      errorMessage: "Church status is required",
     },
-    guild: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Guild is required'
-        }
+  },
+  date_of_birth: {
+    in: ["body"],
+    isISO8601: {
+      errorMessage: "Invalid date format",
     },
-    room_number: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Room number is required'
-        },
+    toDate: true,
+    notEmpty: {
+      errorMessage: "Date of birth is required",
     },
-    location: {
-        in: ['body'],
-        isString: true,
-        trim: true,
-        notEmpty: {
-            errorMessage: 'Location is required'
-        }
-    } 
-}
+  },
+  level: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+    notEmpty: {
+      errorMessage: "Level is required",
+    },
+  },
+  programme: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+    notEmpty: {
+      errorMessage: "Programme is required",
+    },
+  },
+  department: {
+    in: ["body"],
+    oneOf: {
+      options: allDepartments,
+    },
+    trim: true,
+  },
+  guild: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+  },
+  location: {
+    in: ["body"],
+    isString: true,
+    trim: true,
+  },
+};
+
+export const verifyMemberValidation = {
+  email: {
+    in: ["body"],
+    isEmail: {
+      errorMessage: "Invalid email format",
+    },
+    normalizeEmail: true,
+    notEmpty: {
+      errorMessage: "Email is required",
+    },
+  },
+};

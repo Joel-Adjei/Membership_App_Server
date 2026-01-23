@@ -1,86 +1,80 @@
 import mongoose from "mongoose";
 import { allDepartments } from "../utils/utils.js";
 
-
 const adminSchema = new mongoose.Schema(
   {
     user_id: {
-        type: String,
-      required: true
+      type: String,
+      required: true,
     },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const memberSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     hall: {
       type: String,
-      required: true
     },
     contact: {
       type: String,
-      required: true
+      required: true,
     },
     guardian_contact: {
       type: String,
-      required: true
+      required: true,
     },
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     level: {
       type: String,
-      required: true
+      required: true,
     },
     programme: {
       type: String,
-      required: true
+      required: true,
     },
     department: {
       type: String,
       enum: allDepartments,
-      required: true
     },
     guild: {
       type: String,
-      required: true
     },
     room_number: {
       type: String,
-      required: true
     },
     location: {
       type: String,
-      required: true
     },
     student_status: {
       type: String,
       enum: ["graduate", "undergraduate"],
-      required: true
+      required: true,
     },
     church_status: {
       type: String,
       enum: ["member", "associate"],
-      required: true
+      required: true,
     },
     date_of_birth: {
       type: Date,
-      required: true
+      required: true,
     },
     image: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export { adminSchema, memberSchema };
