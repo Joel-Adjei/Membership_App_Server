@@ -10,6 +10,9 @@ import { memberModel } from "../db/models.js";
 const router = Router();
 
 router.get("/all", async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
   try {
     const allMembers = await memberModel.find({});
     return res.status(200).json({ members: allMembers });

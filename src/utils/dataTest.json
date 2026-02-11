@@ -1,0 +1,24 @@
+{
+  "login": {
+    "user_id": "joel_01",
+    "password": "pensa_26"
+  },
+
+  "new_member": {
+    "name": "Lydia Doe",
+    "hall": "",
+    "contact": "+233241564567",
+    "guardian_contact": "+233501234567",
+    "email": "john.doe@example.com",
+    "level": "200",
+    "programme": "Computer Science",
+    "department": "Organizing Department",
+    "guild": "Science Guild",
+    "room_number": "",
+    "location": "Atomic",
+    "student_status": "undergraduate",
+    "church_status": "member",
+    "date_of_birth": "2005-03-15",
+    "image": "https://example.com/profile.jpg"
+  }
+}
